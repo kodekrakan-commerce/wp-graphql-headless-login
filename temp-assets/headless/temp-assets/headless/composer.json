@@ -1,0 +1,10 @@
+{
+  "name": "axepress/wp-graphql-headless-login",
+  "type": "wordpress-plugin",
+  "description": "A WordPress plugin that provides Headless login and authentication for WPGraphQL",
+  "license": "GPL-3.0-or-later",
+  "require": {},
+  "extra": {
+    "comment": "Distribution build from official GitHub Release Asset 0.4.4. Dependencies are pre-bundled in vendor/ and vendor-prefixed/ folders. Do not run composer install/update on this package."
+  }
+}

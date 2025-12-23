@@ -1,0 +1,22 @@
+#wpgraphql_login_settings { // stylelint-disable-line selector-id-pattern
+
+	.components-placeholder {
+		background: #f1f1f1;
+	}
+
+	.components-base-control__help {
+		margin-top: 0.5rem;
+	}
+
+	.components-panel__row {
+
+		>div {
+			flex-grow: 1;
+			margin-right: 1rem;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+}
