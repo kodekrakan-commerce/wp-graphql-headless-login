@@ -1,0 +1,8 @@
+{
+  "package": "symfony/process",
+  "version": "5.4.51",
+  "source_reference": "467bfc56f18f5ef6d5ccb09324d7e988c1c0a98f",
+  "upstream_test_source": "https://raw.githubusercontent.com/symfony/process/v5.4.51/Tests/ProcessTest.php",
+  "retained_test_sha256": "3585567c2743100070188fa576f28887de4d902b99c669521af84d41e9daa0b0",
+  "rule": "Original test source retained byte-for-byte as non-executable text. Focused harness carries same sentinel/vector logic; Windows execution remains separate and unrun."
+}

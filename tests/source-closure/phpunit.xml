@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="bootstrap.php" failOnWarning="true" failOnRisky="true" colors="false">
+  <testsuites>
+    <testsuite name="owned-source-closure-offline">
+      <file>ProcessConsumersTest.php</file>
+      <file>QueryConstraintsTest.php</file>
+    </testsuite>
+  </testsuites>
+</phpunit>
