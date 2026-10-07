@@ -1,7 +1,8 @@
 # Source-closure acceptance for the owned development packages
 
-This source preview has no accepted new lock or installed development graph. PHP
-tests below are prepared and unrun. Only owned Python source validators/negative
+This source preview has no accepted new lock or installed development graph. Genuine installed PHP
+tests below are prepared and unrun. The retirement seam executes only owned source
+with explicit stand-in base/error declarations. Only owned Python source validators/negative
 controls, PHP syntax checks, and plainly labelled owned filesystem/refusal seams
 may run at this milestone. A later successful solve
 alone does not admit execution.
@@ -16,7 +17,7 @@ archive and old-fork source paths (both read only):
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 HEADLESS_OFFICIAL_PROCESS_ARCHIVE=/absolute/verified/source.zip HEADLESS_OLD_PROCESS_FILE=/absolute/f0aec5ca/Process.php python3 tests/source-closure/source_gate_controls.py
-PYTHONDONTWRITEBYTECODE=1 HEADLESS_SOURCE_CONTROL_PHP=/absolute/reviewed/host/php HEADLESS_OFFICIAL_PROCESS_ARCHIVE=/absolute/verified/source.zip python3 tests/source-closure/guard_review_controls.py
+PYTHONDONTWRITEBYTECODE=1 HEADLESS_SOURCE_CONTROL_PHP=/absolute/reviewed/host/php HEADLESS_OFFICIAL_PROCESS_ARCHIVE=/absolute/verified/source.zip HEADLESS_CHECKER_ARCHIVE_DIR=/absolute/held/checker-archives python3 tests/source-closure/guard_review_controls.py
 ```
 
 Controls prove changed/copied/unlisted/symlinked source, helper callable consumers,
@@ -40,7 +41,7 @@ The future runner is `bin/run-source-closure-tests.py --admission /absolute/rece
 The independently reviewed receipt schema is
 `headless-source-closure-installed-admission/v1`; it must supply `php_version`
 exactly `8.2.34`, exact absolute `php_binary`, `php_binary_sha256`, and complete
-`source_hashes` for root composer.json/lock, all dependency-source metadata/content,
+`source_hashes` for root composer.json/lock, activation.php/deactivation.php, all dependency-source metadata/content,
 and every root Composer autoload/autoload-dev input outside vendor (including
 access-functions.php, src, vendor-prefixed and the helper classmap). It also binds
 complete `vendor_files` path-to-SHA256 inventory, complete `harness_files`, and
@@ -123,3 +124,57 @@ runtime packaging acceptance, run the static archive-membership gate with
 testcase/helper or dependency-source bytes leaked. No archive/build is run in this
 preview. Later auth/provider/refresh/issuer/horizon and rebuilt source-profile/native
 qualification remain independent; frozen official-asset receipts retain their inputs.
+
+## Approved retirement and exact checker cohort
+
+Instagram's legacy slug, enum, schema, saved configuration and stored identity keys
+remain compatible metadata. Its configuration class is inert and always refuses
+construction or authentication. Auth and Client refuse the reserved slug before
+registry, user, token, session or metadata work. Registry refuses retired classes
+under aliases and removes retired instances reintroduced by filters. Explicit
+catalogue removal still hides that schema metadata without deleting stored values.
+No professional API integration or automatic migration is included. The genuine
+`tests/wpunit/ProviderMutationsInstagramTest.php` cases are prepared and UNRUN.
+
+Only four human-approved development requirements change. Exact tagged sources,
+Git trees, archive Git blobs, licenses, executable modes and literal export-ignore
+explanations are recorded in `build/dependency-sources/retirement-checker-source-pins.json`.
+ZIP transport permission bits are not canonical Git modes: archive entries advertise
+0000 while the verified Git files are 100644; admitted installed copies must be 0644.
+The checker gate validates the entire four-package membership, bytes, modes and
+selected version/source metadata before any vendor dispatch. Global stability stays
+stable. The inherited PHPCS rules, paths, exclusions and severities are byte-preserved
+except the required target changes from 7.4- to 8.2; advertised minimum PHP becomes
+8.2 in the plugin header/readme. The original XML is bound as an exact baseline.
+
+Run the extra source controls only with an exact reviewed host PHP binary:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 HEADLESS_SOURCE_CONTROL_PHP=/absolute/reviewed/host/php python3 tests/source-closure/retirement_checker_controls.py
+/absolute/reviewed/host/php tests/source-closure/retirement-source-controls.php
+```
+
+The copied source negative removes Client's early refusal and must reach the owned
+external-autoload sentinel before failing. It proves a missing guard is detected;
+syntax/startup failure is not accepted. These seams use no actual GraphQL, WP,
+OAuth, checker or vendor code. See `checker/README.md` and its prepared runner for
+the genuine 8.2/8.1, removed/deprecated, 8.3 rejection, polyfill pair, seeded inherited
+full scan and cache-parity controls. Exact PHPCS CLI registration/support still
+requires separate source/admission validation before execution.
+
+Production packaging must exclude every selected development package, including
+all checker wrappers/AxePress, from both standard and prefixed vendor archives and
+autoload maps. The archive and production-autoload gates use the full named
+development inventory. Original lock/vendor bytes are intentionally unchanged;
+no source-only result proves a later solved, installed or packaged graph clean.
+
+The future selected PHPCS registration JSON must live under tests/source-closure/checker, be present in the complete admitted harness inventory and match its exact hash before any dispatch. A changed/unbound registration or truthy non-boolean source-verification field is refused. The current preview issues no such genuine registration/admission.
+
+The focused checker corrections bind both plugin lifecycle/checker inputs in both
+source inventories. Exact parsed standard identifiers and a complete independent
+SOURCE-reviewed inherited sniff roster are required; the runner fails closed
+without the bound future expected-roster/parser/engine-severity receipt. It cannot
+use its own -e output as the expected roster. The PHP8.1 fixture independently
+requires readonly and both DNF parameter/return ERROR codes at exact input lines,
+with source-reviewed PHPCS severity. See checker/README.md for the strict contract.
+No genuine registry/registration/diagnostic proof is fabricated by source controls.

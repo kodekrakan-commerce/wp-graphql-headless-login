@@ -37,7 +37,7 @@ function headless_hash_map($map): array {
 }
 function headless_source_inputs(string $root): array {
     $result = [];
-    foreach (['composer.json', 'composer.lock'] as $name) {
+    foreach (['composer.json', 'composer.lock', '.phpcs.xml.dist', 'wp-graphql-headless-login.php', 'readme.txt', 'activation.php', 'deactivation.php'] as $name) {
         headless_reject_symlink_path($root . '/' . $name);
         $result[$name] = hash_file('sha256', $root . '/' . $name);
     }
@@ -69,8 +69,13 @@ function headless_harness_inputs(string $root): array {
         $result[$name] = hash_file('sha256', $root . '/' . $name);
     }
     foreach (headless_inventory($root . '/tests/source-closure') as $name => $hash) { $result['tests/source-closure/' . $name] = $hash; }
+    headless_reject_symlink_path($root . '/tests/wpunit/ProviderMutationsInstagramTest.php');
+    $result['tests/wpunit/ProviderMutationsInstagramTest.php'] = hash_file('sha256', $root . '/tests/wpunit/ProviderMutationsInstagramTest.php');
     ksort($result);
     return $result;
+}
+function headless_assert_source_inputs(string $root, $expected): void {
+    if (headless_source_inputs($root) !== headless_hash_map($expected)) { throw new RuntimeException('Admission membership/hash mismatch: source_hashes'); }
 }
 function headless_source_closure_admission(): array {
     $root = dirname(__DIR__, 2);
@@ -83,11 +88,25 @@ function headless_source_closure_admission(): array {
         if (!is_array($admission) || !array_key_exists($field, $admission)) { throw new RuntimeException('Incomplete admission schema.'); }
     }
     if ($admission['schema'] !== 'headless-source-closure-installed-admission/v1' || $admission['php_version'] !== '8.2.34') { throw new RuntimeException('Invalid admission schema/PHP version.'); }
-    foreach (['source_hashes' => headless_source_inputs($root), 'harness_files' => headless_harness_inputs($root), 'vendor_files' => headless_inventory($root . '/vendor')] as $field => $actual) {
+    headless_assert_source_inputs($root, $admission['source_hashes']);
+    foreach (['harness_files' => headless_harness_inputs($root), 'vendor_files' => headless_inventory($root . '/vendor')] as $field => $actual) {
         if ($actual !== headless_hash_map($admission[$field])) { throw new RuntimeException('Admission membership/hash mismatch: ' . $field); }
     }
     foreach (['autoload.php', 'composer/installed.json', 'phpunit/phpunit/phpunit', 'symfony/process/Process.php'] as $name) {
         if (!isset($admission['vendor_files'][$name])) { throw new RuntimeException('Missing mandatory vendor entrypoint binding.'); }
+    }
+    $pins = json_decode(file_get_contents($root . '/build/dependency-sources/retirement-checker-source-pins.json'), true, 512, JSON_THROW_ON_ERROR);
+    foreach ($pins['checker_cohort'] as $name => $package) {
+        if (($package['git_verified'] ?? false) !== true || ($package['export_ignore_verified'] ?? false) !== true) { throw new RuntimeException('Checker source/tag/export verification is not admitted.'); }
+        $actual = headless_inventory($root . '/vendor/' . $name);
+        $expected = [];
+        foreach ($package['archive_members'] as $relative => $member) {
+            headless_relative_key($relative);
+            $expected[$relative] = $member['sha256'];
+            $path = $root . '/vendor/' . $name . '/' . $relative;
+            if (!is_int($member['bytes']) || filesize($path) !== $member['bytes'] || (fileperms($path) & 0777) !== octdec($member['required_installed_mode'])) { throw new RuntimeException('Checker byte/mode mismatch.'); }
+        }
+        if ($actual !== headless_hash_map($expected)) { throw new RuntimeException('Checker member/content mismatch.'); }
     }
     if (!is_string($admission['php_binary']) || !preg_match('~^(?:/|[A-Za-z]:[\\\\/])~', $admission['php_binary']) || !is_string($admission['php_binary_sha256']) || !preg_match('/^[0-9a-f]{64}$/D', $admission['php_binary_sha256'])) { throw new RuntimeException('Exact admitted PHP path/hash required.'); }
     headless_reject_symlink_path($admission['php_binary']);

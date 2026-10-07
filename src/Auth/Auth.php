@@ -13,6 +13,7 @@ namespace WPGraphQL\Login\Auth;
 use GraphQL\Error\UserError;
 use WPGraphQL\Login\Auth\Client;
 use WPGraphQL\Login\Auth\ProviderConfig\Password;
+use WPGraphQL\Login\Auth\ProviderConfig\OAuth2\Instagram;
 use WPGraphQL\Utils\Utils;
 use WP_Error;
 
@@ -45,6 +46,9 @@ class Auth {
 	 * @throws \GraphQL\Error\UserError If the user cannot be created.
 	 */
 	public static function login( array $input ): array {
+		if ( Instagram::get_slug() === ( $input['provider'] ?? null ) ) {
+			Instagram::assert_available();
+		}
 		// If the user is already logged in, throw an error.
 		if ( is_user_logged_in() ) {
 			throw new UserError( esc_html__( 'You are already logged in.', 'wp-graphql-headless-login' ) );
@@ -127,6 +131,9 @@ class Auth {
 	 * @throws \GraphQL\Error\UserError If the user cannot be linked.
 	 */
 	public static function link_user_identity( array $input ): array {
+		if ( Instagram::get_slug() === ( $input['provider'] ?? null ) ) {
+			Instagram::assert_available();
+		}
 		if ( Password::get_slug() === $input['provider'] ) {
 			throw new UserError( esc_html__( 'You cannot link two identities from the same WordPress site. Please use a different `provider`.', 'wp-graphql-headless-login' ) );
 		}

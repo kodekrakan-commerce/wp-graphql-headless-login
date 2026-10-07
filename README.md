@@ -73,7 +73,7 @@ Supported providers (out of the box):
   * Facebook
   * GitHub
   * Google
-  * Instagram
+  * Instagram (retired; legacy settings and identities remain, login is unavailable)
   * LinkedIn
   * OAuth2 - Generic: Any other OAuth 2.0 provider.
   * SAML authentication and more coming soon!

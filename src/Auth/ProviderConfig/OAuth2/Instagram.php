@@ -10,7 +10,7 @@ declare( strict_types = 1 );
 
 namespace WPGraphQL\Login\Auth\ProviderConfig\OAuth2;
 
-use WPGraphQL\Login\Vendor\League\OAuth2\Client\Provider\Instagram as InstagramProvider;
+use GraphQL\Error\UserError;
 
 /**
  * Class - Instagram
@@ -20,14 +20,24 @@ class Instagram extends OAuth2Config {
 	 * The Constructor.
 	 */
 	public function __construct() {
-		parent::__construct( InstagramProvider::class );
+		self::assert_available();
+	}
+
+	/** Refuse the retired service without reading settings or initializing OAuth. */
+	public static function assert_available(): never {
+		throw new UserError( esc_html__( 'Instagram Basic Display login is retired and unavailable. Use another login provider; existing settings and linked identities are preserved. A new Instagram integration requires a separate migration.', 'wp-graphql-headless-login' ) );
+	}
+
+	/** Saved or filtered legacy flags cannot reactivate the retired service. */
+	public static function is_enabled(): bool {
+		return false;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public static function get_name(): string {
-		return __( 'Instagram', 'wp-graphql-headless-login' );
+		return __( 'Instagram (retired)', 'wp-graphql-headless-login' );
 	}
 
 	/**
@@ -41,12 +51,7 @@ class Instagram extends OAuth2Config {
 	 * {@inheritDoc}
 	 */
 	protected function get_options( array $settings ): array {
-		return [
-			'clientId'     => $settings['clientId'] ?? null,
-			'clientSecret' => $settings['clientSecret'] ?? null,
-			'redirectUri'  => $settings['redirectUri'] ?? null,
-			'scope'        => ! empty( $settings['scope'] ) ? $settings['scope'] : [],
-		];
+		self::assert_available();
 	}
 
 	/**
@@ -57,15 +62,7 @@ class Instagram extends OAuth2Config {
 			'scope' => [
 				'type'        => 'array',
 				'description' => __( 'Scope', 'wp-graphql-headless-login' ),
-				'help'        => sprintf(
-					/* translators: %s: URL to Instagram scopes documentation. */
-					__( 'The scope to request from the provider. See %s for a list of available scopes.', 'wp-graphql-headless-login' ),
-					sprintf(
-						'<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
-						'https://developers.facebook.com/docs/instagram-basic-display-api/overview#permissions',
-						__( 'Instagram scopes documentation', 'wp-graphql-headless-login' )
-					)
-				),
+				'help'        => __( 'Retained legacy scope settings. Instagram Basic Display login is retired; these values cannot enable login.', 'wp-graphql-headless-login' ),
 				'order'       => 12,
 				'advanced'    => true,
 				'items'       => [
@@ -82,7 +79,7 @@ class Instagram extends OAuth2Config {
 		return [
 			'scope' => [
 				'type'        => [ 'list_of' => 'String' ],
-				'description' => static fn () => __( 'The scope to request from the Instagram Graph API. See https://developers.facebook.com/docs/instagram-basic-display-api/overview#permissions for a list of available scopes.', 'wp-graphql-headless-login' ),
+				'description' => static fn () => __( 'Retained legacy scope settings for retired Instagram Basic Display login.', 'wp-graphql-headless-login' ),
 			],
 		];
 	}
@@ -107,12 +104,31 @@ class Instagram extends OAuth2Config {
 	 * {@inheritDoc}
 	 */
 	public function get_user_data( array $owner_details ): array {
-		return [
-			'user_login'       => $owner_details['username'],
-			'user_email'       => null,
-			'first_name'       => null,
-			'last_name'        => null,
-			'subject_identity' => (string) $owner_details['id'],
-		];
+		self::assert_available();
+	}
+
+	/** {@inheritDoc} */
+	public function authenticate_and_get_user_data( array $input ) {
+		self::assert_available();
+	}
+
+	/** {@inheritDoc} */
+	public function get_user_from_data( $user_data ) {
+		self::assert_available();
+	}
+
+	/** {@inheritDoc} */
+	public function get_provider() {
+		self::assert_available();
+	}
+
+	/** {@inheritDoc} */
+	public function get_authorization_url(): string {
+		self::assert_available();
+	}
+
+	/** {@inheritDoc} */
+	public function get_resource_owner( array $args ): array {
+		self::assert_available();
 	}
 }

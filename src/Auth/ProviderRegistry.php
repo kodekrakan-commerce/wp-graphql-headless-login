@@ -53,6 +53,10 @@ class ProviderRegistry {
 
 		// Validate the providers, and then add them to the registry.
 		foreach ( $this->registered_providers as $slug => $class ) {
+			// The reserved legacy slug remains metadata only, even after filters.
+			if ( Instagram::get_slug() === $slug ) {
+				continue;
+			}
 			// Skip if the provider class does not exist.
 			if ( ! class_exists( $class ) ) {
 				graphql_debug(
@@ -81,6 +85,11 @@ class ProviderRegistry {
 				continue;
 			}
 
+			// Retired implementations cannot become active under a filtered alias.
+			if ( is_a( $class, Instagram::class, true ) || Instagram::get_slug() === $class::get_slug() ) {
+				continue;
+			}
+
 			// Skip if the provider is disabled.
 			if ( ! $class::is_enabled() ) {
 				continue;
@@ -96,6 +105,7 @@ class ProviderRegistry {
 			 * @param array $providers The instantiated provider config instances.
 			 */
 			$this->providers = apply_filters( 'graphql_login_provider_config_instances', $this->providers );
+			$this->remove_retired_instances();
 		}
 	}
 
@@ -139,6 +149,10 @@ class ProviderRegistry {
 				]
 			);
 
+			// Keep an existing catalogue entry inert; removal by the catalogue filter still works.
+			if ( array_key_exists( Instagram::get_slug(), $registered_providers ) ) {
+				$registered_providers[ Instagram::get_slug() ] = Instagram::class;
+			}
 			// Sort providers alphabetically by slug.
 			ksort( $registered_providers );
 
@@ -156,6 +170,9 @@ class ProviderRegistry {
 	 * @throws \Exception When provider slug is not supported.
 	 */
 	public function get_provider_config( string $provider_slug ): ProviderConfig {
+		if ( Instagram::get_slug() === $provider_slug ) {
+			Instagram::assert_available();
+		}
 		if ( ! isset( $this->providers[ $provider_slug ] ) ) {
 			throw new \Exception(
 				sprintf(
@@ -166,7 +183,12 @@ class ProviderRegistry {
 			);
 		}
 
-		return $this->providers[ $provider_slug ];
+		$provider = $this->providers[ $provider_slug ];
+		if ( $provider instanceof Instagram || Instagram::get_slug() === $provider->get_slug() ) {
+			Instagram::assert_available();
+		}
+
+		return $provider;
 	}
 
 	/**
@@ -175,6 +197,15 @@ class ProviderRegistry {
 	 * @return array<string,\WPGraphQL\Login\Auth\ProviderConfig\ProviderConfig>
 	 */
 	public function get_providers(): array {
+		$this->remove_retired_instances();
 		return $this->providers;
+	}
+	/** Remove retired metadata mistakenly reintroduced by the instance filter. */
+	private function remove_retired_instances(): void {
+		foreach ( $this->providers as $slug => $provider ) {
+			if ( Instagram::get_slug() === $slug || $provider instanceof Instagram || Instagram::get_slug() === $provider->get_slug() ) {
+				unset( $this->providers[ $slug ] );
+			}
+		}
 	}
 }

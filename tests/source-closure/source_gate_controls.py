@@ -19,6 +19,8 @@ class SourceGateControls(unittest.TestCase):
         self.root = Path(self.temp.name).resolve()
         shutil.copytree(ROOT / "build/dependency-sources", self.root / "build/dependency-sources")
         shutil.copyfile(ROOT / "composer.json", self.root / "composer.json")
+        for name in (".phpcs.xml.dist", "wp-graphql-headless-login.php", "readme.txt"):
+            shutil.copyfile(ROOT / name, self.root / name)
 
     def tearDown(self):
         self.temp.cleanup()
