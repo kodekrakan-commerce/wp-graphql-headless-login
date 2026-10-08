@@ -1,0 +1,78 @@
+{
+  "package": "symfony/process",
+  "version": "5.4.51",
+  "source_reference": "467bfc56f18f5ef6d5ccb09324d7e988c1c0a98f",
+  "archive_url": "https://api.github.com/repos/symfony/process/zipball/467bfc56f18f5ef6d5ccb09324d7e988c1c0a98f",
+  "archive_sha256": "fd9344119e56ebcf5c23c290a3ca266feb3e123b6aad64f35af057dec5d3fe87",
+  "source_php_files": {
+    "Exception/ExceptionInterface.php": {
+      "sha256": "544e59b6d6023f113920c1d6a037e33ff4389350802899ce0b22a4e978262876",
+      "mode": "0644"
+    },
+    "Exception/InvalidArgumentException.php": {
+      "sha256": "804a50e6fddbd347ef2e58ce1e517bb9b5c0e6e85f3e180aa737a309efa275eb",
+      "mode": "0644"
+    },
+    "Exception/LogicException.php": {
+      "sha256": "324d0170880899015dddab3d4bfb41586358c9052b7996bd7e691d5ab7ac7a59",
+      "mode": "0644"
+    },
+    "Exception/ProcessFailedException.php": {
+      "sha256": "dac064bb55aec8cc959a5a2855fe4be43cd6e40ccd3e5d92a9aecd82693e87f0",
+      "mode": "0644"
+    },
+    "Exception/ProcessSignaledException.php": {
+      "sha256": "4b9156c9d65db12525636b8c29ada29c0683a81772d4db03dcc63ec46d368cb5",
+      "mode": "0644"
+    },
+    "Exception/ProcessTimedOutException.php": {
+      "sha256": "a3bb7fc2bf25d0c83fb89c86c15045d2ad5adf6c1e2130598c32d464a24f6301",
+      "mode": "0644"
+    },
+    "Exception/RuntimeException.php": {
+      "sha256": "6a030facd29abdb91ecaf44baf3f0f9dd210e3085e1928f153a721229a253d84",
+      "mode": "0644"
+    },
+    "ExecutableFinder.php": {
+      "sha256": "effe0ac7130c37c9562535c3c2c99ab0ad719fd29fed4261aae185775245f741",
+      "mode": "0644"
+    },
+    "InputStream.php": {
+      "sha256": "6f73d6655aa93e998a8da83752b2665222390467240a216f50f30d5898335efe",
+      "mode": "0644"
+    },
+    "PhpExecutableFinder.php": {
+      "sha256": "66d7f4c5fad60051b66df0a39f092467c2283f1a6ce0e4c1a5777fb9edbe8048",
+      "mode": "0644"
+    },
+    "PhpProcess.php": {
+      "sha256": "96312234e151406c542a4d181d7ef35bf4cae474c96785872a93cacbd773abb8",
+      "mode": "0644"
+    },
+    "Pipes/AbstractPipes.php": {
+      "sha256": "b9161eb920f98e7bd24a7ac65742b042c801feeb54ef4a22a25199578f2e18d9",
+      "mode": "0644"
+    },
+    "Pipes/PipesInterface.php": {
+      "sha256": "1dba221d60f277c2d6a09f1bd0f8837f8991f115f659210745504fb65f84bad8",
+      "mode": "0644"
+    },
+    "Pipes/UnixPipes.php": {
+      "sha256": "65dad6e898da70c06634816d5fc0d117fef5f8e1121d378401fef68dcf1f988a",
+      "mode": "0644"
+    },
+    "Pipes/WindowsPipes.php": {
+      "sha256": "ea03f433e4309280378d7b078e20af18f66ddc881d893f497f7b4af1b7bbb7cb",
+      "mode": "0644"
+    },
+    "Process.php": {
+      "sha256": "206f76ad26345df0916d1a4f698a33cc1ca3c77a8cae3a843f8640811aa53823",
+      "mode": "0644"
+    },
+    "ProcessUtils.php": {
+      "sha256": "ce6bd63b348aefce9239b2bdc72d3fb82928ea309b1940d706a7b05fc9460af3",
+      "mode": "0644"
+    }
+  },
+  "rule": "Exact actual PHP source membership and hashes before autoload. Tests/ is qualified separately; no source is executed by this gate."
+}

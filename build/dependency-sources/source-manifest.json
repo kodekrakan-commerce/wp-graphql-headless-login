@@ -1,0 +1,93 @@
+{
+  "schema": "headless-owned-development-source/v1",
+  "base_owner_reference": "d4ecd267e9a73a45e298063d2403f666f6134d83",
+  "development_version": "dev-codex-headless-source-closure",
+  "package_files": {
+    "build/dependency-sources/wp-cli-bundle/LICENSE": {
+      "sha256": "7b1e7b898618c53feba37b239e6d1c7de1882f0a6228c92c4800bfe9e58149e6",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-cli-bundle/README.md": {
+      "sha256": "6489e0e3a6c9889cc51f29528e0ee8720b55a9b2aee3412b53301b8fd86e3e6c",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-cli-bundle/UPSTREAM-COMPOSER.json": {
+      "sha256": "1ae6cd6db5cda8ec1148cd650101162f376b5c9422aba9d5cdf8430f4bfe828a",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-cli-bundle/composer.json": {
+      "sha256": "ae3cd4863c3951bffeb6836274f478b34d3204ba47002cd8e66a6041cacdc4a3",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/LICENSE": {
+      "sha256": "aeb8c79e53e8bef27755d946e17825b1c074b6c82f9ae2d0ca4870846161dc34",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/README.md": {
+      "sha256": "69276249f2188a6fcf10cd4975d3e7a868b11b6294c9fa59737027846b63d5e8",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/UPSTREAM-COMPOSER.json": {
+      "sha256": "5a0c4ea6f45806c8a34c60bc474d3f4f4d3a25d625e431c4de3bc10a7ec46e50",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/composer.json": {
+      "sha256": "5a6dc4cc059f76d0f32633c2fb1d536e2482fb23823ea2718dd68e0127543af8",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Codeception/Module/QueryAsserts.php": {
+      "sha256": "b1e78065970f0591c750c4cacf06015946e0d4a4a327fb6a44c2c852715761d9",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Codeception/Module/WPGraphQL.php": {
+      "sha256": "4912fa66110918a189dfe7fc522dd8d9fc855ca3ab3770b5f500b23cf9e67d78",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Constraint/QueryConstraint.php": {
+      "sha256": "53ae234a752642c5dd7fc42a10effb7c42c7ba84874e6dacfb53c78657514927",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Constraint/QueryErrorConstraint.php": {
+      "sha256": "4ffec911467a974f0f7ad82b03a6c2c91606808a9a3c79adf8b6e66880c07c64",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Constraint/QuerySuccessfulConstraint.php": {
+      "sha256": "0b357807613f480ab781220572bf4f1a608620583eca05b744a7a386ecb9765f",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Logger/CodeceptLogger.php": {
+      "sha256": "fbd83356777771628cd8ed64369cb972831a75a90697a211327de21d77bc54e9",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Logger/Logger.php": {
+      "sha256": "102273a28f2234a3c5dc49ec8d7a65717fef30e1051044b23c626673efbca2c6",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Logger/PHPUnitLogger.php": {
+      "sha256": "39bb3420a69791ec18e19aa8027f50b77301db3738a9483bdae1abc93234bd66",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/TestCase/WPGraphQLTestCase.php": {
+      "sha256": "ac83ab9d7e1cb84fd32701f363b445214e47d3adf1f44bce7e25f15f00c6c9df",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/TestCase/WPGraphQLTestCommon.php": {
+      "sha256": "c7afcbfb5f16a6198bd393ea129821d333716480720e0f57ad4e2e889957c9c5",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/TestCase/WPGraphQLUnitTestCase.php": {
+      "sha256": "50c9c20d7093651b1d00d31babaeedf4e4b3e00f67cab13224447a4b9d2181b3",
+      "mode": "0644"
+    },
+    "build/dependency-sources/wp-graphql-testcase/src/Utils/Utils.php": {
+      "sha256": "112907ed6d03e186a03d6b9300ee5bb0950c11c4df6e3ebda1e988804231fb8d",
+      "mode": "0644"
+    }
+  },
+  "provenance_files": {
+    "advisory-source-mappings.json": "330bff647ae12dfe92f61d9c515c47c4f4c66e9958aa520d0c8b835452fa657a",
+    "root-candidate-before-closure.json": "bae2d873e160e7e0079f9e1a415845cf1e9dddd5b21f918260a05c4d904e1f6b",
+    "official-process-source.json": "b3459484a474b3c8b32eacf3675d61411c95919e9939f4aa2954d9b147f3eec3"
+  },
+  "note": "This preview manifest binds package file/path/mode content; later reviewed owning commit and lock bind release lineage. No invented reviewed successor commit/lock is recorded."
+}

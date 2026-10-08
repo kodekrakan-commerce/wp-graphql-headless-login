@@ -50,6 +50,9 @@ class ProviderEnum extends EnumType {
 					$provider::get_name()
 				),
 			];
+			if ( 'instagram' === $provider::get_slug() ) {
+				$values[ $name ]['deprecationReason'] = __( 'Instagram Basic Display login is retired. This value remains for legacy settings and linked identities.', 'wp-graphql-headless-login' );
+			}
 		}
 
 		if ( empty( $values ) ) {

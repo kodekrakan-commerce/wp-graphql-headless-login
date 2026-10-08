@@ -1,0 +1,16 @@
+{
+  "php83-negative.php": {
+    "derived_from": "NewTypedConstantsStandard.xml.txt",
+    "tag": "10.0.0-alpha2",
+    "commit": "e0f0e5a3dc819a4a0f8d679a0f2453d941976e18",
+    "member": "PHPCompatibility-PHPCompatibility-e0f0e5a/PHPCompatibility/Docs/Classes/NewTypedConstantsStandard.xml",
+    "source_sha256": "6a8d8660bb41a27ca978d84e2b49ed22c19ef35f8717bb7d9e2926cb04b5d2cf",
+    "delta": "Two exact documented typed constants; remove documentation emphasis tags; PHP opener and values retained semantically. Read only; never executed."
+  },
+  "all_fixture_hashes": {
+    "php82-positive.php": "af85946a1d3ca39a7b84976b148c52663655f5514ca6aa70db0501d65884be82",
+    "removed-deprecated.php": "bb0ca7db67a11ea97c0e08eccad31b73f24550f43d68839fac1cb13b1a523e51",
+    "wp-polyfill.php": "04dc92fdedef8019e22d4798b916684db12efb3aca68cf43fc395c0f5101dbc1",
+    "php83-negative.php": "c578caad50ff7e1b8289d8bb332d51d2a723c74c522f469ee15886e2d5025d4d"
+  }
+}

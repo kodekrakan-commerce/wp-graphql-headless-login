@@ -150,7 +150,13 @@ class User {
 		$providers = ProviderRegistry::get_instance()->get_providers();
 
 		$identities = [];
-		foreach ( array_keys( $providers ) as $provider ) {
+		// Retired Instagram identities remain readable without activating its provider.
+		$provider_slugs = array_keys( $providers );
+		if ( isset( ProviderRegistry::get_instance()->get_registered_providers()['instagram'] ) ) {
+			$provider_slugs[] = 'instagram';
+		}
+		$provider_slugs = array_unique( $provider_slugs );
+		foreach ( $provider_slugs as $provider ) {
 			$identity = get_user_meta( $user_id, self::get_identity_meta_key( $provider ), true );
 			if ( ! empty( $identity ) ) {
 				$identities[ $provider ] = $identity;

@@ -1,0 +1,18 @@
+{
+  "name": "kodekrakan-commerce/headless-graphql-testcase",
+  "version": "dev-codex-headless-source-closure",
+  "description": "Headless-owned PHP 8.2 adaptation of WPGraphQL testcase 3.4.0",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tests\\WPGraphQL\\": "src/"
+    },
+    "classmap": [
+      "src/"
+    ]
+  }
+}

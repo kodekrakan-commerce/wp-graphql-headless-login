@@ -1,0 +1,106 @@
+{
+  "schema": "headless-owned-development-advisory-mapping/v1",
+  "packages": [
+    {
+      "owned_name": "kodekrakan-commerce/headless-wp-cli-bundle",
+      "path": "build/dependency-sources/wp-cli-bundle",
+      "upstream_name": "wp-cli/wp-cli-bundle",
+      "upstream_version": "v2.12.0",
+      "upstream_source_reference": "d639a3dab65f4b935b21c61ea3662bf3258a03a5",
+      "upstream_source_url": "https://github.com/wp-cli/wp-cli-bundle",
+      "advisory_names": [
+        "kodekrakan-commerce/headless-wp-cli-bundle",
+        "wp-cli/wp-cli-bundle"
+      ],
+      "changes": [
+        "Owned development identity and metapackage",
+        "PHP >=8.2",
+        "Remove wp-cli/process:5.9.99",
+        "Add genuine symfony/process:5.4.51; preserve every framework/command requirement"
+      ],
+      "source_files_copied": [
+        "LICENSE"
+      ],
+      "process_source_reference": "467bfc56f18f5ef6d5ccb09324d7e988c1c0a98f"
+    },
+    {
+      "owned_name": "kodekrakan-commerce/headless-graphql-testcase",
+      "path": "build/dependency-sources/wp-graphql-testcase",
+      "upstream_name": "wp-graphql/wp-graphql-testcase",
+      "upstream_version": "v3.4.0",
+      "upstream_source_reference": "572d4c51e9a0a33ec1b99970155fe005f468f4ec",
+      "upstream_source_url": "https://github.com/wp-graphql/wp-graphql-testcase",
+      "advisory_names": [
+        "kodekrakan-commerce/headless-graphql-testcase",
+        "wp-graphql/wp-graphql-testcase"
+      ],
+      "changes": [
+        "Owned development identity",
+        "PHP >=8.2",
+        "Explicitly omit abandoned php-extended/polyfill-php80-str-utils after scoped usage review; no compatibility helper or alias"
+      ],
+      "upstream_src": {
+        "src/Codeception/Module/QueryAsserts.php": {
+          "sha256": "b1e78065970f0591c750c4cacf06015946e0d4a4a327fb6a44c2c852715761d9",
+          "mode": "0644"
+        },
+        "src/Codeception/Module/WPGraphQL.php": {
+          "sha256": "4912fa66110918a189dfe7fc522dd8d9fc855ca3ab3770b5f500b23cf9e67d78",
+          "mode": "0644"
+        },
+        "src/Constraint/QueryConstraint.php": {
+          "sha256": "53ae234a752642c5dd7fc42a10effb7c42c7ba84874e6dacfb53c78657514927",
+          "mode": "0644"
+        },
+        "src/Constraint/QueryErrorConstraint.php": {
+          "sha256": "4ffec911467a974f0f7ad82b03a6c2c91606808a9a3c79adf8b6e66880c07c64",
+          "mode": "0644"
+        },
+        "src/Constraint/QuerySuccessfulConstraint.php": {
+          "sha256": "0b357807613f480ab781220572bf4f1a608620583eca05b744a7a386ecb9765f",
+          "mode": "0644"
+        },
+        "src/Logger/CodeceptLogger.php": {
+          "sha256": "fbd83356777771628cd8ed64369cb972831a75a90697a211327de21d77bc54e9",
+          "mode": "0644"
+        },
+        "src/Logger/Logger.php": {
+          "sha256": "102273a28f2234a3c5dc49ec8d7a65717fef30e1051044b23c626673efbca2c6",
+          "mode": "0644"
+        },
+        "src/Logger/PHPUnitLogger.php": {
+          "sha256": "39bb3420a69791ec18e19aa8027f50b77301db3738a9483bdae1abc93234bd66",
+          "mode": "0644"
+        },
+        "src/TestCase/WPGraphQLTestCase.php": {
+          "sha256": "ac83ab9d7e1cb84fd32701f363b445214e47d3adf1f44bce7e25f15f00c6c9df",
+          "mode": "0644"
+        },
+        "src/TestCase/WPGraphQLTestCommon.php": {
+          "sha256": "c7afcbfb5f16a6198bd393ea129821d333716480720e0f57ad4e2e889957c9c5",
+          "mode": "0644"
+        },
+        "src/TestCase/WPGraphQLUnitTestCase.php": {
+          "sha256": "50c9c20d7093651b1d00d31babaeedf4e4b3e00f67cab13224447a4b9d2181b3",
+          "mode": "0644"
+        },
+        "src/Utils/Utils.php": {
+          "sha256": "112907ed6d03e186a03d6b9300ee5bb0950c11c4df6e3ebda1e988804231fb8d",
+          "mode": "0644"
+        }
+      },
+      "preserved_suggestions": {
+        "codeception/module-asserts": "Needed for \\Tests\\WPGraphQL\\TestCase\\WPGraphQLTestcase to work.",
+        "codeception/util-universalframework": "Needed for \\Tests\\WPGraphQL\\TestCase\\WPGraphQLTestcase to work.",
+        "lucatume/wp-browser": "Needed for \\Tests\\WPGraphQL\\TestCase\\WPGraphQLTestcase to work.",
+        "phpunit/phpunit": "Needed for \\Tests\\WPGraphQL\\TestCase\\WPGraphQLUnitTestcase to work.",
+        "wp-phpunit/wp-phpunit": "Needed for \\Tests\\WPGraphQL\\TestCase\\WPGraphQLUnitTestcase to work.",
+        "yoast/phpunit-polyfills": "Needed for \\Tests\\WPGraphQL\\TestCase\\WPGraphQLUnitTestcase to work.",
+        "guzzlehttp/guzzle": "Needed for \\Tests\\WPGraphQL\\Codeception\\Module\\WPGraphQL to work."
+      },
+      "license_sha256": "aeb8c79e53e8bef27755d946e17825b1c074b6c82f9ae2d0ca4870846161dc34"
+    }
+  ],
+  "rule": "At each build/final admission query owned and original identities; compare retained copied code against original advisories. Missing identity coverage is explicit, never clean by renaming.",
+  "maintenance": "Headless owner reviews local patches; no upstream maintenance guarantee. Recheck releases/support/advisories and return to a qualified official successor."
+}
