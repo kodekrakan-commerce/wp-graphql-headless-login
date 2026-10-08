@@ -200,6 +200,7 @@ class ProviderRegistry {
 		$this->remove_retired_instances();
 		return $this->providers;
 	}
+
 	/** Remove retired metadata mistakenly reintroduced by the instance filter. */
 	private function remove_retired_instances(): void {
 		foreach ( $this->providers as $slug => $provider ) {

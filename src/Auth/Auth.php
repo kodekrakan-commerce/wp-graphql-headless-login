@@ -12,8 +12,8 @@ namespace WPGraphQL\Login\Auth;
 
 use GraphQL\Error\UserError;
 use WPGraphQL\Login\Auth\Client;
-use WPGraphQL\Login\Auth\ProviderConfig\Password;
 use WPGraphQL\Login\Auth\ProviderConfig\OAuth2\Instagram;
+use WPGraphQL\Login\Auth\ProviderConfig\Password;
 use WPGraphQL\Utils\Utils;
 use WP_Error;
 

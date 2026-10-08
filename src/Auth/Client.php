@@ -10,8 +10,8 @@ declare( strict_types = 1 );
 
 namespace WPGraphQL\Login\Auth;
 
-use WPGraphQL\Login\Auth\ProviderConfig\ProviderConfig;
 use WPGraphQL\Login\Auth\ProviderConfig\OAuth2\Instagram;
+use WPGraphQL\Login\Auth\ProviderConfig\ProviderConfig;
 use WPGraphQL\Login\Utils\Utils;
 
 /**

@@ -100,7 +100,7 @@ def main():
     validate_sniff_registry(registry.stdout,expected_roster['expected_sniffs'])
     (output/'complete-sniff-registry.txt').write_text(registry.stdout)
     fixtures=ROOT/'tests/source-closure/checker'
-    cases=[('php82-positive.php','PHPCompatibility','8.2',[]),('php82-positive.php','PHPCompatibility','8.1',list(PHP81_DIAGNOSTICS)),('removed-deprecated.php','PHPCompatibilityWP','8.2',['utf8_encodeDeprecated','eachFound','RemovedDollarBraceStringEmbeds']),('php83-negative.php','PHPCompatibility','8.2',['PHPCompatibility.Classes.NewTypedConstants.Found']),('wp-polyfill.php','PHPCompatibility','7.4',['str_containsFound','eachDeprecated']),('wp-polyfill.php','PHPCompatibilityWP','7.4',['eachDeprecated'])]
+    cases=[('php82-positive.php','PHPCompatibility','8.2',[]),('php82-positive.php','PHPCompatibility','8.1',list(PHP81_DIAGNOSTICS)),('removed-deprecated.php','PHPCompatibilityWP','8.2',['utf8_encodeDeprecated','eachDeprecatedRemoved','RemovedDollarBraceStringEmbeds']),('php83-negative.php','PHPCompatibility','8.2',['PHPCompatibility.Classes.NewTypedConstants.Found']),('wp-polyfill.php','PHPCompatibility','7.4',['str_containsFound','eachDeprecated']),('wp-polyfill.php','PHPCompatibilityWP','7.4',['eachDeprecated'])]
     def report(arguments,cwd=ROOT):
         result=dispatch(['--report=json','--parallel=1','--severity=1','--warning-severity=1','--extensions=php',*arguments],cwd)
         data=json.loads(result.stdout);messages=[m for f in data['files'].values() for m in f['messages']]
@@ -134,7 +134,7 @@ def main():
         seeded=[]
         for cache in ('--no-cache','--cache='+str(output/'full-seeded.cache'),'--cache='+str(output/'full-seeded.cache')):
             result,messages=report(['--standard='+str(copy/'.phpcs.xml.dist'),cache,*[str(copy/name) for name in ('src','access-functions.php','wp-graphql-headless-login.php','activation.php','deactivation.php','vendor/excluded.php')]],copy)
-            if not result.returncode or not any('RemovedFunctions.eachFound' in m[0] and m[4].endswith('src/retirement-checker-seed.php') for m in messages):raise ValueError('Full inherited seeded source did not genuinely fail at included seed path')
+            if not result.returncode or not any('RemovedFunctions.eachDeprecatedRemoved' in m[0] and m[4].endswith('src/retirement-checker-seed.php') for m in messages):raise ValueError('Full inherited seeded source did not genuinely fail at included seed path')
             if 'vendor/excluded.php' in result.stdout:raise ValueError('Configured vendor exclusion changed')
             seeded.append((result.returncode,messages))
         if seeded[0]!=seeded[1] or seeded[1]!=seeded[2]:raise ValueError('Full seeded scan cache drift')

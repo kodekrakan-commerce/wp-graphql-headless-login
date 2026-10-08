@@ -23,7 +23,11 @@ class Instagram extends OAuth2Config {
 		self::assert_available();
 	}
 
-	/** Refuse the retired service without reading settings or initializing OAuth. */
+	/**
+	 * Refuse the retired service without reading settings or initializing OAuth.
+	 *
+	 * @throws \GraphQL\Error\UserError Always, because Instagram Basic Display login is retired.
+	 */
 	public static function assert_available(): never {
 		throw new UserError( esc_html__( 'Instagram Basic Display login is retired and unavailable. Use another login provider; existing settings and linked identities are preserved. A new Instagram integration requires a separate migration.', 'wp-graphql-headless-login' ) );
 	}

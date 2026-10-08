@@ -145,7 +145,7 @@ class ProviderSettings {
 				];
 				if ( 'instagram' === $slug ) {
 					$config[ self::$settings_prefix . $slug ]['isEnabled']['label'] = __( 'Retired provider (cannot be enabled)', 'wp-graphql-headless-login' );
-					$config[ self::$settings_prefix . $slug ]['isEnabled']['help'] = __( 'Instagram Basic Display login is retired. Saved settings and linked identities are retained; use another login provider.', 'wp-graphql-headless-login' );
+					$config[ self::$settings_prefix . $slug ]['isEnabled']['help']  = __( 'Instagram Basic Display login is retired. Saved settings and linked identities are retained; use another login provider.', 'wp-graphql-headless-login' );
 				}
 			}
 
